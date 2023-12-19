@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>JavaScript DOM 프로그래밍</title>
+    <style>
+        #pascalTriangle {
+            margin-top: 20px;
+        }
+        #binaryInputLabel {
+            color: blue;
+        }
+        .pascal-row {
+            background-color: dimgray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-3">
+    <h4>2진수 변환기</h4>
+    <div class="row">
+        <div class="col-md-5">
+            <label id="binaryInputLabel" for="binaryInput">2 진수: </label>
+            <input type="text" id="binaryInput" style="width: 150px;">
+            <button type="button" class="btn btn-dark" onclick="convertToHex()">==></button>
+        </div>
+        <div class="col-md-7">
+            <label id="binaryInputLabel" for="binaryInput">16 진수: </label>
+            <input type="text" id="hexOutput" style="width: 150px;" readonly>
+        </div>
+    </div>
+        <hr>
+
+
+    <h4>파스칼 삼각형</h4>
+    <label id="binaryInputLabel" for="triangleHeight">삼각형 높이: </label>
+    <input type="number" id="triangleHeight" style="width: 60px;" min="1" value="1">
+    <button type="button" class="btn btn-success" onclick="drawPascalTriangle()">그리기</button>
+    <div id="pascalTriangle"></div>
+</div>
+
+    <script>
+        function convertToHex() {
+            const binaryInput = document.getElementById('binaryInput').value;
+            const hexOutput = document.getElementById('hexOutput');
+
+            // 이진수를 10진수로 변환 후 16진수로 변환
+            const decimalValue = parseInt(binaryInput, 2);
+            const hexValue = decimalValue.toString(16).toUpperCase();
+
+            hexOutput.value = hexValue;
+        }
+
+        function drawPascalTriangle() {
+            const height = document.getElementById('triangleHeight').value;
+            const pascalTriangleDiv = document.getElementById('pascalTriangle');
+            pascalTriangleDiv.innerHTML = '';
+
+            for (let i = 0; i < height; i++) {
+                let row = '1';
+                for (let j = 1; j <= i; j++) {
+                    row += ' ' + factorial(i) / (factorial(j) * factorial(i - j));
+                }
+                pascalTriangleDiv.innerHTML += row + '<br>';
+            }
+        }
+
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+
+        function drawPascalTriangle() {
+            const height = document.getElementById('triangleHeight').value;
+            const pascalTriangleDiv = document.getElementById('pascalTriangle');
+            pascalTriangleDiv.innerHTML = '';
+
+            for (let i = 0; i < height; i++) {
+                let row = '';
+                for (let j = 0; j <= i; j++) {
+                    row += `${factorial(i) / (factorial(j) * factorial(i - j))} `;
+                }
+                pascalTriangleDiv.innerHTML += `<div class="pascal-row">${row}</div>`;
+            }
+        }
+
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+    </script>
+</body>
+</html>
