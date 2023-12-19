@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>취업 정보 계정 만들기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .title {
+            font-size: 18pt;
+        }
+        .section {
+            font-weight: bold;
+            background-color: lightblue;
+            width: 800px;
+            padding-left: 10px;
+        }
+        .field {
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .required {
+            color: black;
+            font-size: 10pt;
+        }
+        .required-mark {
+            color: red;
+            font-size: 10pt;
+        }
+        .input {
+            width: 130px;
+            text-align: right;
+            padding-right: 8px;
+        }
+    </style>
+</head>
+<body>
+<h1 class="title">취업 정보 계정 만들기</h1>
+<p><span class="required-mark">*필수 입력 항목</span></p>
+    <form>
+        <div class="section">기본 정보</div><br>
+        <div class="field">
+            <label for="name" class="required input">이름<span class="required-mark">*</span></label>
+            <input type="text" id="name" required>
+        </div><br>
+        <div class="field">
+            <label for="email" class="required input">이메일<span class="required-mark">*</span></label>
+            <input type="email" id="email" placeholder="id@domain_name" required>
+        </div><br>
+        <div class="field">
+            <label for="password" class="required input">암호<span class="required-mark">*</span></label>
+            <input type="password" id="password" required>
+        </div><br>
+        <div class="field">
+            <label for="confirmPassword" class="required input">암호 확인<span class="required-mark">*</span></label>
+            <input type="password" id="confirmPassword" required>
+        </div><br>
+        <div class="field">
+            <label for="mobile" class="required input">모바일 폰<span class="required-mark">*</span></label>
+            <input type="tel" id="mobile" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000" required>
+        </div><br>
+        <div class="field">
+            <label for="website" class="required input">개인 홈페이지</label>
+            <input type="url" id="website" placeholder="http://">
+        </div><br>
+        <div class="field">
+            <label for="address" class="required input">주소<span class="required-mark">*</span></label>
+            <input type="text" id="address" required>
+        </div><br>
+
+        <div class="section">학력</div><br>
+        <div class="field">
+            <label for="school" class="required input">학교명<span class="required-mark">*</span></label>
+            <input type="text" id="school" required>
+        </div><br>
+        <div class="field">
+            <label for="major" class="required input" >전공<span class="required-mark">*</span></label>
+            <input type="text" id="major" required>
+        </div><br>
+        <div class="field">
+            <label for="graduationStatus" class="required input">졸업 여부<span class="required-mark">*</span></label>
+            <select id="graduationStatus" required>
+                <option value="" disabled selected>---선택---</option>
+                <option value="졸업">졸업</option>
+                <option value="예정 졸업">예정 졸업</option>
+            </select>
+        </div><br>
+        <div class="field">
+            <label for="graduationDate" class="required input">졸업(예정)일</span></label>
+            <input type="date" id="graduationDate" required>
+        </div><br>
+
+        <div class="section">업무 경력</div><br>
+        <div class="field">
+            <label for="workplace" class="required input">근무업체명</span></label>
+            <input type="text" id="workplace" required>
+        </div><br>
+        <div class="field">
+            <label for="position" class="required input">직위</span></label>
+            <input type="text" id="position" required>
+        </div><br>
+        <div class="field">
+            <label for="responsibilities" class="required input">담당 업무</span></label>
+            <textarea id="responsibilities" rows="10" cols="80" placeholder="이전 업체에서 담당한 업무를 기술하시오."required></textarea>
+        </div><br>
+        <div class="field">
+            <label for="workYears" class="required input">근무년수</span></label>
+            <input type="number" id="workYears" required>년
+        </div><br>
+
+        <div class="section">자기소개서</div><br>
+        <div class="field" style="margin-left: 80px;">
+            <label for="resumeFile" class="required">첨부 파일</label>
+            <input type="file" id="resumeFile">
+
+        </div><br>
+
+        <div class="field" style="margin-left: 200px;">
+            <input type="submit" value="제출">
+            <input type="reset" value="재작성">
+        </div>
+    </form>
+</body>
+</html>
